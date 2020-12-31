@@ -19,6 +19,8 @@ sudo dpkg --install google-chrome-stable_current_amd64.deb
 sudo apt install --assume-yes --fix-broken
 sudo apt install nautilus nano -y 
 sudo apt install openssh-server -y
+sudo apt install xfce4 xfce4-goodies gnome-icon-theme tightvncserver -y
+
 sudo adduser alfredo chrome-remote-desktop
 } &> /dev/null &&
 printf "\nSetup Complete " >&2 ||
