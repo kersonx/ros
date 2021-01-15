@@ -18,9 +18,9 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg --install google-chrome-stable_current_amd64.deb
 sudo apt install --assume-yes --fix-broken
 sudo apt install nautilus nano -y 
-sudo apt install openssh-server -y
-sudo apt install xfce4 xfce4-goodies -y
-sudo apt install tightvncserver -y
+sudo apt install nordvpn-release_1.0.0_all.deb
+sudo apt install nordvpn
+
 
 
 sudo adduser alfredo chrome-remote-desktop
