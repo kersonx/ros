@@ -18,8 +18,7 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg --install google-chrome-stable_current_amd64.deb
 sudo apt install --assume-yes --fix-broken
 sudo apt install nautilus nano -y 
-sudo apt install nordvpn-release_1.0.0_all.deb
-sudo apt install nordvpn
+sh <(wget -qO - https://downloads.nordcdn.com/apps/linux/install.sh)
 
 
 
