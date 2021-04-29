@@ -1,21 +1,34 @@
-#@title **Create User**
-#@markdown Enter Username and Password
+#! /bin/bash
+printf "Installing RDP Be Patience... " >&2
+{
+sudo useradd -m alfredo
+sudo adduser alfredo sudo
+echo 'alfredo:alfredo1' | sudo chpasswd
+sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
+sudo apt-get update
+wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
+sudo dpkg --install chrome-remote-desktop_current_amd64.deb
+sudo apt install --assume-yes --fix-broken
+sudo DEBIAN_FRONTEND=noninteractive \
+apt install --assume-yes xfce4 desktop-base
+sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'  
+sudo apt install --assume-yes xscreensaver
+sudo systemctl disable lightdm.service
+sudo apt -y install firefox
 
-username = "ALOK" #@param {type:"string"}
-password = "1234" #@param {type:"string"}
 
-print("Creating User and Setting it up")
 
-# Creation of user
-! sudo useradd -m $username &> /dev/null
-
-# Add user to sudo group
-! sudo adduser $username sudo &> /dev/null
-    
-# Set password of user to 'root'
-! echo '$username:$password' | sudo chpasswd
-
-# Change default shell from sh to bash
-! sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
-
-print("User Created and Configured")
+sudo adduser alfredo chrome-remote-desktop
+} &> /dev/null &&
+printf "\nSetup Complete " >&2 ||
+printf "\nError Occured " >&2
+printf '\nCheck https://remotedesktop.google.com/headless  Copy Command Of Debian Linux And Paste Down\n'
+read -p "Paste Here: " CRP
+su - alfredo -c """$CRP"""
+printf 'Check https://remotedesktop.google.com/access/ \n\n'
+if sudo apt-get upgrade &> /dev/null
+then
+    printf "\n\nUpgrade Completed " >&2
+else
+    printf "\n\nError Occured " >&2
+fi
