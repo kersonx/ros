@@ -1,9 +1,9 @@
 #! /bin/bash
 printf "Installing RDP Be Patience... " >&2
 {
-sudo useradd -m alfredo
-sudo adduser alfredo sudo
-echo 'alfredo:alfredo1' | sudo chpasswd
+sudo useradd -m alkona
+sudo adduser alkona sudo
+echo 'alkona:alkona' | sudo chpasswd
 sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
 sudo apt-get update
 wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
@@ -18,7 +18,7 @@ sudo apt -y install firefox
 
 
 
-sudo adduser alfredo chrome-remote-desktop
+sudo adduser alkona chrome-remote-desktop
 } &> /dev/null &&
 printf "\nSetup Complete " >&2 ||
 printf "\nError Occured " >&2
