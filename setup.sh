@@ -6,12 +6,16 @@ sudo adduser alfredo sudo
 echo 'alfredo:alfredo1' | sudo chpasswd
 sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
 sudo apt-get update
-sudo apt-get https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
-sudo dpkg install chrome-remote-desktop_current_amd64.deb
+wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
+sudo dpkg --install chrome-remote-desktop_current_amd64.deb
 sudo apt install --assume-yes --fix-broken
 sudo DEBIAN_FRONTEND=noninteractive \
-sudo apt install --assume-yes xfce4 desktop-base
+apt install --assume-yes xfce4 desktop-base
+sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'  
+sudo apt install --assume-yes xscreensaver
 sudo systemctl disable lightdm.service
+sudo apt -y install firefox
+
 
 
 sudo adduser alfredo chrome-remote-desktop
