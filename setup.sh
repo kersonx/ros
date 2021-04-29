@@ -10,17 +10,18 @@ sudo apt-get upgrade -y
 # install pre-reqs
 sudo apt install tasksel -y
 # get the file
-sudo apt install --assume-yes --fix-broken
+sudo apt install tasksel -y
 sudo tasksel install ubuntu-desktop
-echo "exec /usr/bin/gnome-session" > ~/.chrome-remote-desktop-session
-sudo systemctl disable gdm3.service
 wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
 sudo dpkg --install chrome-remote-desktop_current_amd64.deb
 sudo apt install --assume-yes --fix-broken
-sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'  
 sudo DEBIAN_FRONTEND=noninteractive \
+apt install --assume-yes xfce4 desktop-base
+sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'  
+sudo apt install --assume-yes xscreensaver
 sudo systemctl disable lightdm.service
 sudo apt -y install firefox
+
 
 sudo adduser alfredo chrome-remote-desktop
 } &> /dev/null &&
