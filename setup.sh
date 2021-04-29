@@ -6,12 +6,6 @@ sudo adduser alfredo sudo
 echo 'alfredo:alfredo1' | sudo chpasswd
 sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
 sudo apt-get update
-sudo apt-get upgrade -y
-# install pre-reqs
-sudo apt install tasksel -y
-# get the file
-sudo apt install tasksel -y
-sudo tasksel install ubuntu-desktop
 wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
 sudo dpkg --install chrome-remote-desktop_current_amd64.deb
 sudo apt install --assume-yes --fix-broken
@@ -21,6 +15,7 @@ sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome
 sudo apt install --assume-yes xscreensaver
 sudo systemctl disable lightdm.service
 sudo apt -y install firefox
+
 
 
 sudo adduser alfredo chrome-remote-desktop
