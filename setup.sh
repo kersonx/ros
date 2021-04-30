@@ -22,7 +22,7 @@ printf '\nCheck https://remotedesktop.google.com/headless Copy Command Of Debian
 read -p "Paste Here: " CRP
 su - phcorner -c """$CRP"""
 printf 'Check https://remotedesktop.google.com/access/ \n\n'
-if sudo apt-get upgrade &> /dev/null
+if sudo apt-get update &> /dev/null
 then
 printf "\n\nUpgrade Completed " >&2
 else
