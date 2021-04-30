@@ -13,6 +13,7 @@ sudo apt install -y --fix-broken
 sudo DEBIAN_FRONTEND=noninteractive apt install -y xfce4 desktop-base
 sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
 sudo apt install -y xscreensaver
+sudo apt install firefox
 sudo usermod -a -G chrome-remote-desktop $USER
 
 } &> /dev/null &&
@@ -24,7 +25,7 @@ su - phcorner -c """$CRP"""
 printf 'Check https://remotedesktop.google.com/access/ \n\n'
 if sudo apt-get update &> /dev/null
 then
-printf "\n\nUpgrade Completed " >&2
+printf "\n\nUpdate Completed " >&2
 else
 printf "\n\nError Occured " >&2
 fi
