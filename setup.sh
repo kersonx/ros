@@ -5,20 +5,16 @@ sudo useradd -m phcorner
 sudo adduser phcorner sudo
 echo 'phcorner:0000' | sudo chpasswd
 sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
-sudo apt-get update
-wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
+sudo apt update
+sudo apt-get install -y wget
+sudo wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
 sudo dpkg --install chrome-remote-desktop_current_amd64.deb
-sudo apt install --assume-yes --fix-broken
-sudo DEBIAN_FRONTEND=noninteractive \
-apt install --assume-yes xfce4 desktop-base
+sudo apt install -y --fix-broken
+sudo DEBIAN_FRONTEND=noninteractive apt install -y xfce4 desktop-base
 sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
-sudo apt install --assume-yes xscreensaver
-sudo systemctl disable lightdm.service
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo dpkg --install google-chrome-stable_current_amd64.deb
-sudo apt install --assume-yes --fix-broken
-sudo apt install nautilus nano -y
-sudo adduser phcorner chrome-remote-desktop
+sudo apt install -y xscreensaver
+sudo usermod -a -G chrome-remote-desktop $USER
+
 } &> /dev/null &&
 printf "\nSetup Complete " >&2 ||
 printf "\nError Occured " >&2
@@ -32,4 +28,3 @@ printf "\n\nUpgrade Completed " >&2
 else
 printf "\n\nError Occured " >&2
 fi
-
