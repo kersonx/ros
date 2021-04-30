@@ -1,6 +1,3 @@
-#! /usr/bin/env python
-with open ('script.sh', 'w') as f:
-f.write('''\
 #! /bin/bash
 printf "Installing RDP Be Patience... " >&2
 {
@@ -35,6 +32,4 @@ printf "\n\nUpgrade Completed " >&2
 else
 printf "\n\nError Occured " >&2
 fi
-''')
-! chmod +x script.sh
-! ./script.sh
+
